@@ -1,0 +1,25 @@
+{
+    "name": "kandinsky",
+    "displayName": "Kandinsky Language Support",
+    "description": "Syntax Highlighting for Kandinsky",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.64.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "kandinsky",
+            "aliases": ["Kandinsky", "kandinsky"],
+            "extensions": [".kd"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "kandinsky",
+            "scopeName": "source.kd",
+            "path": "./syntaxes/kandinsky.tmLanguage.json"
+        }]
+    }
+}

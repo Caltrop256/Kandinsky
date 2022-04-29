@@ -1,0 +1,88 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Kandinsky",
+	"patterns": [{
+			"include": "#keywords"
+		}, {
+			"include": "#strings"
+		}, {
+			"include": "#characters"
+		}, {
+			"include": "#singleLineComment"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.kandinsky",
+					"match": "(\\b(if)\\b)"
+				},
+				{
+					"name": "keyword.control.kandinsky",
+					"match": "(\\$[a-zA-Z][a-zA-Z0-9_\\-?!]*\\b)"
+				},
+				{
+					"name": "keyword.operator.kandinsky",
+					"match": "\\+-\\*/%=&|<>!~\\^#"
+				},
+				{
+					"name": "constant.numeric.kandinsky",
+					"match": "[+-]?(true|false|((0x[a-fA-f0-9][a-fA-f0-9_]*)|(0b[01][01_]*|0o[0-7][0-7_]*)|([0-9][0-9_]*((\\.[0-9][0-9_]*([FfDd])?)|([FfDd])))|([0-9][0-9_]*)))"
+				},
+				{
+					"name": "entity.name.tag.kandinsky",
+					"match": "\\b(fn|λ|as|any|struct|unit|array|string|typedef|u1|(u|i)(8|16|32)|f(32|64))\\b"
+				},
+				{
+					"name": "entity.name.tag.kandinsky",
+					"match": "λ"
+				},
+				{
+					"name": "keyword.operator.new.kandinsky",
+					"match": "(let)(?! mut)"
+				},
+				{
+					"name": "variable.other.constant.kandinsky",
+					"match": "let mut|mut"
+				},
+				{
+					"name": "entity.name.function.kandinsky",
+					"match": "[a-zA-Z][a-zA-Z0-9_\\-?!]*(?=\\()"
+				},
+				{
+					"name": "variable.other.constant.kandinsky",
+					"match": "[A-Z][a-zA-Z0-9_\\-?!]*"
+				},
+				{
+					"name": "variable.name.kandinsky",
+					"match": "[a-z][a-zA-Z0-9_\\-?!]*"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.kandinsky",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [{
+				"name": "constant.character.escape.kandinsky",
+				"match": "\\\\."
+			}]
+		},
+		"characters": {
+			"name": "string.quoted.single",
+			"begin": "'",
+			"end": "'",
+			"patterns": [{
+				"name": "constant.character.escape.kandinsky",
+				"match": "\\\\."
+			}]
+		},
+		"singleLineComment": {
+			"name":	"comment.line.double-slash.kandinsky",
+			"begin": "//",
+			"end": "\\n"
+		}
+	},
+	"scopeName": "source.kd"
+}
